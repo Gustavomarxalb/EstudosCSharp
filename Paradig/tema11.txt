@@ -1,0 +1,31 @@
+﻿nome|cpf|Estado
+Juca  Tabulante  |482.931 504-22|São Paulo
+Tebaldo  Vilcar|105-847.219 15|pr
+Ariadne Vieira Nogueira |733 462-801.49|Sc
+Diogo Álvaro Moncorvo|294.115.387-50|Santa Catarina
+Mayra Corrêa  Vitorelo  |658-023-944 13|PR
+Marcio Da Costa Batista|912 756 308.84|mg
+Juvenal Mosquera|520.198-463-27|Mato Grosso
+Bartina Lagame|339-641.520 91|df
+Cremilda  Tutibona|807 235.164-06|minas gerais
+Alairton  Masquero |146.982-753.38|sP
+Matusalém  Giodize|571-309 428-64|rj
+Hidelma Casagrande Barichelo|228 514.970.19|pR
+Marcos Barbosa  Castro Neves|493.627 815-55|mt
+Stenico Santana Garcia |052-739-146 70|distrito federal
+Emernegilda Santos Cunha|865 401.329.43|sp
+Filipe Cavaleiro De Macedo |317.584-602-86|mT
+Valdemar  Faganeto Rogueti|940-216 793.12|Rio de janeiro
+Margarida  Viola |682 153.487-97|sao paulo
+Dafra  Topata |125.870.531-21|mT
+Tormentina Mianto |759-402-268 04|rio de janeiro
+Hidelma Filisbina |436 915.084.69|mG
+Fizema Igarro |281.364-790-35|sC
+Gatunilda Amiuna|508-627 341.58|mato grosso
+Lartina  Dumante|924 170.512-42|são Paulo
+Miguelito  Fintara |613.849.205-16|Mt
+Eleni  Gusmão Pacheco|047-592-638 73|Minas Gerais
+Nelson  Pascoal  Aguiar  |395 128.476.29|Sp
+Clériton  Sávio Santos|862.703-951-80|rJ
+Rozalino  Ritalino |174-356 219.07|São Paulo
+Chica  da Silva|539 084.627-54|mg

@@ -1,0 +1,131 @@
+<html>
+<head>
+<title>Corretor.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6c95eb;}
+.s1 { color: #d0d0d0;}
+.s2 { color: #bdbdbd;}
+.s3 { color: #c9a26d;}
+.s4 { color: #ed94c0;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Corretor.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">namespace </span><span class="s1">Paradig</span><span class="s2">;</span>
+
+<span class="s0">public class </span><span class="s1">Corretor</span>
+<span class="s2">{</span>
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">Nomes </span><span class="s2">{ </span><span class="s1">get</span><span class="s2">; </span><span class="s0">private </span><span class="s1">set</span><span class="s2">; }</span>
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">CPFs </span><span class="s2">{ </span><span class="s1">get</span><span class="s2">; </span><span class="s0">private </span><span class="s1">set</span><span class="s2">; }</span>
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">Estados </span><span class="s2">{ </span><span class="s1">get</span><span class="s2">; </span><span class="s0">private </span><span class="s1">set</span><span class="s2">; }</span>
+    
+    <span class="s0">private string</span><span class="s2">[] </span><span class="s1">Conteudo</span><span class="s2">;</span>
+
+
+    <span class="s0">public </span><span class="s1">Corretor</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">LerDados</span><span class="s2">();</span>
+        <span class="s1">Nomes </span><span class="s2">= </span><span class="s1">ConsertaNomes</span><span class="s2">();</span>
+        <span class="s1">Estados </span><span class="s2">= </span><span class="s1">SiglaEstado</span><span class="s2">();</span>
+        <span class="s1">CPFs </span><span class="s2">= </span><span class="s1">ConsertaCpf</span><span class="s2">();</span>
+    <span class="s2">}</span>
+    
+    <span class="s0">public void </span><span class="s1">LerDados</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s1">Conteudo </span><span class="s2">= </span><span class="s1">File</span><span class="s2">.</span><span class="s1">ReadAllLines</span><span class="s2">(</span><span class="s3">&quot;tema11.txt&quot;</span><span class="s2">);</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">ConsertaNomes</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">nomes </span><span class="s2">= </span><span class="s0">new string</span><span class="s2">[</span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">];</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s0">string </span><span class="s1">coluna </span><span class="s2">= </span><span class="s1">Conteudo</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">Split</span><span class="s2">(</span><span class="s3">'|'</span><span class="s2">)[</span><span class="s4">0</span><span class="s2">];</span>
+            <span class="s1">coluna </span><span class="s2">= </span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">TrimEnd</span><span class="s2">();</span>
+
+            <span class="s0">while </span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Contains</span><span class="s2">(</span><span class="s3">&quot;  &quot;</span><span class="s2">))</span>
+            <span class="s2">{</span>
+                <span class="s1">coluna </span><span class="s2">= </span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Replace</span><span class="s2">(</span><span class="s3">&quot;  &quot;</span><span class="s2">, </span><span class="s3">&quot; &quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Contains</span><span class="s2">(</span><span class="s3">&quot;nome&quot;</span><span class="s2">))</span>
+                <span class="s1">coluna </span><span class="s2">= </span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Remove</span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">IndexOf</span><span class="s2">(</span><span class="s3">&quot;nome&quot;</span><span class="s2">));</span>
+            <span class="s1">nomes</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">coluna</span><span class="s2">;</span>
+        <span class="s2">}</span>
+
+        <span class="s0">return </span><span class="s1">nomes</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">SiglaEstado</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">estados </span><span class="s2">= </span><span class="s0">new string</span><span class="s2">[</span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">];</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s0">string </span><span class="s1">coluna </span><span class="s2">= </span><span class="s1">Conteudo</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">Split</span><span class="s2">(</span><span class="s3">'|'</span><span class="s2">)[</span><span class="s4">2</span><span class="s2">].</span><span class="s1">Trim</span><span class="s2">().</span><span class="s1">ToUpper</span><span class="s2">();</span>
+            
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Length </span><span class="s2">== </span><span class="s4">2 </span><span class="s2">&amp;&amp; </span><span class="s1">!coluna</span><span class="s2">.</span><span class="s1">Contains</span><span class="s2">(</span><span class="s3">&quot; &quot;</span><span class="s2">))</span>
+            <span class="s2">{</span>
+                <span class="s1">estados</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">coluna</span><span class="s2">;</span>
+                <span class="s0">continue</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            
+            <span class="s1">var partes </span><span class="s2">= </span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Split</span><span class="s2">(</span><span class="s3">' '</span><span class="s2">, </span><span class="s1">StringSplitOptions</span><span class="s2">.</span><span class="s1">RemoveEmptyEntries</span><span class="s2">);</span>
+
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">partes</span><span class="s2">.</span><span class="s1">Length </span><span class="s2">== </span><span class="s4">1</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">estados</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">partes</span><span class="s2">[</span><span class="s4">0</span><span class="s2">].</span><span class="s1">Substring</span><span class="s2">(</span><span class="s4">0</span><span class="s2">, </span><span class="s4">2</span><span class="s2">);</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">estados</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s3">$&quot;</span><span class="s2">{</span><span class="s1">partes</span><span class="s2">[</span><span class="s4">0</span><span class="s2">][</span><span class="s4">0</span><span class="s2">]}{</span><span class="s1">partes</span><span class="s2">[^</span><span class="s4">1</span><span class="s2">][</span><span class="s4">0</span><span class="s2">]}</span><span class="s3">&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            
+        <span class="s2">}</span>
+        <span class="s0">if </span><span class="s2">(</span><span class="s1">estados</span><span class="s2">[</span><span class="s4">0</span><span class="s2">] == </span><span class="s3">&quot;ES&quot;</span><span class="s2">)</span>
+            <span class="s1">estados</span><span class="s2">[</span><span class="s4">0</span><span class="s2">] = </span><span class="s1">estados</span><span class="s2">[</span><span class="s4">0</span><span class="s2">].</span><span class="s1">Remove</span><span class="s2">(</span><span class="s1">estados</span><span class="s2">[</span><span class="s4">0</span><span class="s2">].</span><span class="s1">IndexOf</span><span class="s2">(</span><span class="s3">&quot;ES&quot;</span><span class="s2">)); </span>
+        <span class="s0">return </span><span class="s1">estados</span><span class="s2">;</span>
+    <span class="s2">}</span>
+
+    <span class="s0">public string</span><span class="s2">[] </span><span class="s1">ConsertaCpf</span><span class="s2">()</span>
+    <span class="s2">{</span>
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">cpf </span><span class="s2">= </span><span class="s0">new string</span><span class="s2">[</span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">];</span>
+
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s4">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">Conteudo</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s0">string </span><span class="s1">coluna </span><span class="s2">= </span><span class="s1">Conteudo</span><span class="s2">[</span><span class="s1">i</span><span class="s2">].</span><span class="s1">Split</span><span class="s2">(</span><span class="s3">'|'</span><span class="s2">)[</span><span class="s4">1</span><span class="s2">].</span><span class="s1">Trim</span><span class="s2">();</span>
+            
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">.</span><span class="s1">Contains</span><span class="s2">(</span><span class="s3">&quot;cpf&quot;</span><span class="s2">))</span>
+            <span class="s2">{</span>
+                <span class="s1">cpf</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s3">&quot;&quot;</span><span class="s2">;</span>
+                <span class="s0">continue</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            
+            <span class="s0">string </span><span class="s1">apenasNumeros </span><span class="s2">= </span><span class="s1">System</span><span class="s2">.</span><span class="s1">Text</span><span class="s2">.</span><span class="s1">RegularExpressions</span><span class="s2">.</span><span class="s1">Regex</span><span class="s2">.</span><span class="s1">Replace</span><span class="s2">(</span><span class="s1">coluna</span><span class="s2">, </span><span class="s3">@&quot;\D&quot;</span><span class="s2">, </span><span class="s3">&quot;&quot;</span><span class="s2">);</span>
+            
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">apenasNumeros</span><span class="s2">.</span><span class="s1">Length </span><span class="s2">== </span><span class="s4">11</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                
+                <span class="s0">string </span><span class="s1">bloco1 </span><span class="s2">= </span><span class="s1">apenasNumeros</span><span class="s2">.</span><span class="s1">Substring</span><span class="s2">(</span><span class="s4">0</span><span class="s2">, </span><span class="s4">3</span><span class="s2">); </span>
+                <span class="s0">string </span><span class="s1">bloco2 </span><span class="s2">= </span><span class="s1">apenasNumeros</span><span class="s2">.</span><span class="s1">Substring</span><span class="s2">(</span><span class="s4">3</span><span class="s2">, </span><span class="s4">3</span><span class="s2">); </span>
+                <span class="s0">string </span><span class="s1">bloco3 </span><span class="s2">= </span><span class="s1">apenasNumeros</span><span class="s2">.</span><span class="s1">Substring</span><span class="s2">(</span><span class="s4">6</span><span class="s2">, </span><span class="s4">3</span><span class="s2">); </span>
+                <span class="s0">string </span><span class="s1">digitos </span><span class="s2">= </span><span class="s1">apenasNumeros</span><span class="s2">.</span><span class="s1">Substring</span><span class="s2">(</span><span class="s4">9</span><span class="s2">, </span><span class="s4">2</span><span class="s2">); </span>
+                
+                <span class="s1">cpf</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s3">$&quot;</span><span class="s2">{</span><span class="s1">bloco1</span><span class="s2">}</span><span class="s3">.</span><span class="s2">{</span><span class="s1">bloco2</span><span class="s2">}</span><span class="s3">.</span><span class="s2">{</span><span class="s1">bloco3</span><span class="s2">}</span><span class="s3">-</span><span class="s2">{</span><span class="s1">digitos</span><span class="s2">}</span><span class="s3">&quot;</span><span class="s2">;</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">cpf</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] = </span><span class="s1">apenasNumeros</span><span class="s2">;</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+        <span class="s0">return </span><span class="s1">cpf</span><span class="s2">;</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>

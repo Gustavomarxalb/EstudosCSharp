@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Program.cs</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #6c95eb;}
+.s1 { color: #d0d0d0;}
+.s2 { color: #bdbdbd;}
+.s3 { color: #ed94c0;}
+.s4 { color: #c9a26d;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Program.cs</font>
+</center></td></tr></table>
+<pre><span class="s0">namespace </span><span class="s1">Paradig</span><span class="s2">;</span>
+
+<span class="s0">class </span><span class="s1">Program</span>
+<span class="s2">{</span>
+    <span class="s0">static void </span><span class="s1">Main</span><span class="s2">(</span><span class="s0">string</span><span class="s2">[] </span><span class="s1">args</span><span class="s2">)</span>
+    <span class="s2">{</span>
+        <span class="s1">var obj </span><span class="s2">= </span><span class="s0">new </span><span class="s1">Corretor</span><span class="s2">();</span>
+
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">nomes </span><span class="s2">= </span><span class="s1">obj</span><span class="s2">.</span><span class="s1">Nomes</span><span class="s2">;</span>
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">estados </span><span class="s2">= </span><span class="s1">obj</span><span class="s2">.</span><span class="s1">Estados</span><span class="s2">;</span>
+        <span class="s0">string</span><span class="s2">[] </span><span class="s1">CPFs </span><span class="s2">= </span><span class="s1">obj</span><span class="s2">.</span><span class="s1">CPFs</span><span class="s2">;</span>
+        <span class="s0">for </span><span class="s2">(</span><span class="s0">int </span><span class="s1">i </span><span class="s2">= </span><span class="s3">0</span><span class="s2">; </span><span class="s1">i </span><span class="s2">&lt; </span><span class="s1">obj</span><span class="s2">.</span><span class="s1">Nomes</span><span class="s2">.</span><span class="s1">Length</span><span class="s2">; </span><span class="s1">i</span><span class="s2">++)</span>
+        <span class="s2">{</span>
+            <span class="s0">if </span><span class="s2">(</span><span class="s1">i </span><span class="s2">!= </span><span class="s3">0</span><span class="s2">)</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s1">nomes</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] + </span><span class="s4">&quot; | &quot; </span><span class="s2">+ </span><span class="s1">CPFs</span><span class="s2">[</span><span class="s1">i</span><span class="s2">] + </span><span class="s4">&quot; | &quot; </span><span class="s2">+ </span><span class="s1">estados</span><span class="s2">[</span><span class="s1">i</span><span class="s2">]);</span>
+            <span class="s2">}</span>
+            <span class="s0">else</span>
+            <span class="s2">{</span>
+                <span class="s1">Console</span><span class="s2">.</span><span class="s1">WriteLine</span><span class="s2">(</span><span class="s4">&quot;Nome&quot; </span><span class="s2">+ </span><span class="s4">&quot; | &quot; </span><span class="s2">+ </span><span class="s4">&quot;CPF&quot; </span><span class="s2">+ </span><span class="s4">&quot; | &quot; </span><span class="s2">+ </span><span class="s4">&quot;Estado&quot;</span><span class="s2">);</span>
+            <span class="s2">}</span>
+        <span class="s2">}</span>
+    <span class="s2">}</span>
+<span class="s2">}</span></pre>
+</body>
+</html>
