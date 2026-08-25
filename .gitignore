@@ -1,2 +1,6 @@
-bin/
-obj/
+**/.idea/
+**/bin/
+**/obj/
+exportToHTML/
+exportarParaHTML/
+*.zip
