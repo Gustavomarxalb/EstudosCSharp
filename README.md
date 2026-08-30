@@ -1,4 +1,4 @@
-# Estudos C#
+# DataCleanser-CSharp
 
 Repositório para armazenar exercícios de C# (.NET) para fins de estudo.
 
