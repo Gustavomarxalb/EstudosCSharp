@@ -4,7 +4,7 @@ Repositório para armazenar exercícios de C# (.NET) para fins de estudo.
 
 **Exercícios**
 
-* **Corretor de Dados (`Program.cs`):** Aplicação de console para tratamento, formatação e validação de nome, CPF e estado.
+* **Corretor de Dados (`Program.cs`):** Aplicação de console para tratamento, formatação e validação de nome, CPF e Estado.
 
 **Ambiente de Desenvolvimento**
 
